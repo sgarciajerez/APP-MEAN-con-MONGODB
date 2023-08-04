@@ -1,0 +1,54 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="d-flex align-items-center flex-wrap">
+                        <span class="titulo flex-fill text-center display-6 py-3 border-bottom">Listado de Productos</span>
+                        <button 
+                        class="btn btn-success px-3 px-lg-5 mx-auto mx-md-0 my-3 my-md-0"
+                        [routerLink]="'crear-producto'"
+                        >
+                        Crear producto
+                        </button>
+                    </div>
+                    <section class="table_container">
+                        <table class="table table-striped mt-4">
+                            <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Categoría</th>
+                                <th scope="col">Ubicación</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Cocacola</td>
+                                <td>Bebida</td>
+                                <td>España</td>
+                                <td>2.50€</td>
+                                <td>
+                                    <i class="fa fa-pencil mx-2" aria-hidden="true"></i>
+                                    <i class="fa fa-trash mx-2" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fanta</td>
+                                <td>Bebida</td>
+                                <td>Argentina</td>
+                                <td>1.50$</td>
+                                <td>
+                                    <i  class="fa fa-pencil mx-2" aria-hidden="true"></i>
+                                    <i class="fa fa-trash mx-2" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
