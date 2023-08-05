@@ -25,6 +25,21 @@ exports.obtenerProductos = async (req, res) => {
         res.status(500).send('Hubo error');
     }
 }
+
+exports.obtenerProducto = async (req, res) => {
+    try {
+        let producto = await Producto.findById(req.params.id);
+        if (!producto){
+            res.status(404).json({message: 'No existe ese producto'});
+        }
+        res.json(producto);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo error');
+    }
+}
+
 exports.actualizarProducto = async (req, res) => {
     try {
         const {nombre, categoria, ubicacion, precio} = req.body;
@@ -43,6 +58,21 @@ exports.actualizarProducto = async (req, res) => {
 
         }
         
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo error');
+    }
+}
+
+exports.eliminarProducto = async (req, res) => {
+    try {
+        let producto = await Producto.findById(req.params.id);
+        if (!producto){
+            res.status(404).json({message: 'No existe ese producto'});
+        }
+        await Producto.findOneAndRemove({_id:req.params.id});
+        res.json({mensaje: 'Producto eliminado con éxito'});
         
     } catch (error) {
         console.log(error);
