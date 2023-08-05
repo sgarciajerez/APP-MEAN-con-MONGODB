@@ -13,7 +13,7 @@
                         </button>
                     </div>
                     <section class="table_container">
-                        <table class="table table-striped mt-4">
+                        <table class="table table-striped mt-4" *ngIf="products!=[]">
                             <thead>
                             <tr>
                                 <th scope="col">Producto</th>
@@ -24,28 +24,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Cocacola</td>
-                                <td>Bebida</td>
-                                <td>España</td>
-                                <td>2.50€</td>
+                            <tr *ngFor="let product of products">
+                                <td>{{product.nombre}}</td>
+                                <td>{{product.categoria}}</td>
+                                <td>{{product.ubicacion}}</td>
+                                <td>{{product.precio}} &euro;</td>
                                 <td>
-                                    <i class="fa fa-pencil mx-2" aria-hidden="true"></i>
-                                    <i class="fa fa-trash mx-2" aria-hidden="true"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fanta</td>
-                                <td>Bebida</td>
-                                <td>Argentina</td>
-                                <td>1.50$</td>
-                                <td>
-                                    <i  class="fa fa-pencil mx-2" aria-hidden="true"></i>
-                                    <i class="fa fa-trash mx-2" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil mx-2" aria-hidden="true" [routerLink]="['editar-producto', product._id]"></i>
+                                    <i (click)="eliminarProducto(product._id)" class="fa fa-trash mx-2" aria-hidden="true"></i>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
+                        <p *ngIf="products==[]" class="text-danger text-center">No hay productos para mostrar...</p>
                     </section>
                 </div>
             </div>
